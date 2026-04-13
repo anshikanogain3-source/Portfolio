@@ -1,0 +1,396 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.container {
+    width: min(1080px, calc(100% - 32px));
+}
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.hero-panel,
+.card {
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+}
+
+.hero-panel {
+    padding: 34px;
+    background:
+        linear-gradient(160deg, var(--panel-tint-strong), rgba(255, 255, 255, 0.02)),
+        var(--surface-strong);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 620px;
+}
+
+.hero-top {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    width: fit-content;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(53, 208, 163, 0.12);
+    color: #b9f4e2;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.hero-panel h1 {
+    margin: 0;
+    font-size: clamp(2.3rem, 5vw, 4.2rem);
+    line-height: 0.96;
+}
+
+.hero-panel p {
+    margin: 0;
+    max-width: 540px;
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.7;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.stat-box {
+    padding: 16px;
+    border-radius: 18px;
+    background: var(--panel-tint);
+    border: 1px solid var(--line);
+}
+
+.stat-box span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+}
+
+.stat-box strong {
+    font-size: 1.25rem;
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    background: var(--surface-strong);
+    color: var(--text);
+    justify-self: end;
+    min-height: 620px;
+}
+
+.card-header {
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    margin: 12px 0 6px;
+    font-size: 1.65rem;
+}
+
+.card-header p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.toggle-box {
+    display: flex;
+    background: var(--panel-tint);
+    padding: 6px;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid var(--line);
+}
+
+.toggle-box button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: 0.25s;
+    box-shadow: none;
+}
+
+.toggle-box button.active {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: #07201c;
+    font-weight: bold;
+}
+
+.form {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form.active {
+    display: flex;
+    animation: fadeIn 0.4s ease both;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.form h2 {
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+.form input {
+    margin: 0;
+}
+
+.password-container {
+    position: relative;
+    margin: 0;
+}
+
+.password-container input {
+    padding-right: 76px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    min-width: 56px;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: var(--panel-tint);
+    color: var(--text);
+    border: 1px solid var(--line);
+    box-shadow: none;
+    font-size: 0.85rem;
+}
+
+.password-toggle:hover {
+    transform: none;
+    background: var(--panel-tint-strong);
+}
+
+.password-strength {
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+    background: var(--panel-tint-strong);
+}
+
+.password-strength.weak {
+    background: var(--danger);
+    width: 33%;
+}
+
+.password-strength.medium {
+    background: var(--warning);
+    width: 66%;
+}
+
+.password-strength.strong {
+    background: var(--primary);
+    width: 100%;
+}
+
+.password-label {
+    margin: -2px 0 0;
+    min-height: 18px;
+    color: var(--muted);
+    font-size: 0.84rem;
+}
+
+.password-label.success {
+    color: #8df2cd;
+}
+
+.password-label.error {
+    color: #ffb0a9;
+}
+
+.password-checklist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: -2px;
+}
+
+.password-checklist span {
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: var(--panel-tint);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.password-checklist span.valid {
+    color: #bff7e6;
+    border-color: rgba(53, 208, 163, 0.35);
+    background: rgba(53, 208, 163, 0.12);
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    margin-top: 4px;
+    color: var(--muted);
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.options a {
+    color: #dffaf2;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.helper-text {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.62);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: var(--surface-strong);
+    backdrop-filter: blur(18px);
+    padding: 25px;
+    border-radius: 22px;
+    width: 360px;
+    text-align: left;
+    color: var(--text);
+    animation: scaleIn 0.3s ease;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal input {
+    width: 100%;
+    margin: 12px 0 0;
+}
+
+.close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--muted);
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-step {
+    display: grid;
+    gap: 12px;
+}
+
+.modal-step h3 {
+    margin: 0 0 2px;
+    font-size: 1rem;
+}
+
+.modal-step p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+@media (max-width: 920px) {
+    .hero-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-panel,
+    .card {
+        min-height: auto;
+    }
+
+    .card {
+        max-width: none;
+        justify-self: stretch;
+    }
+
+    .hero-stats,
+    .password-checklist {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        width: calc(100% - 20px);
+    }
+
+    .hero-panel,
+    .card {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
