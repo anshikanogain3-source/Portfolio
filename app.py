@@ -54,7 +54,7 @@ def get_current_user():
 # Home Route
 @app.route("/")
 def home():
-    return ("Welcome to the Expense Tracker Backend")
+    return render_template("index.html") 
 
 @app.route("/main")
 def main_page():
