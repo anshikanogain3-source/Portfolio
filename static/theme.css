@@ -197,18 +197,16 @@ button.danger {
     background: var(--surface-strong);
     color: var(--text);
     box-shadow: var(--shadow);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
     opacity: 0;
     pointer-events: none;
+    transform: translateY(-10px);
     transition: opacity 0.25s ease, transform 0.25s ease;
     z-index: 1200;
 }
 
 .toast.show {
     opacity: 1;
-    transform: translate(-50%, -50%);
+    transform: translateY(0);
 }
 
 .toast.success {
