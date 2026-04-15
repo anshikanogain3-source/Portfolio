@@ -1,7 +1,7 @@
 // ============================
 // AUTH UI
 // ============================
-const API_URL = "http://127.0.0.1:8800";
+const API_URL = "window.location.origin";
 
 const loginBtn = document.getElementById("loginBtn");
 const signupBtn = document.getElementById("signupBtn");
