@@ -77,5 +77,5 @@ function showToast(message, success = true) {
     clearTimeout(showToast.timer);
     showToast.timer = setTimeout(() => {
         toast.className = "toast";
-    }, 2500);
+    }, 5000);
 }

@@ -198,7 +198,7 @@ signupForm.onsubmit = async (e) => {
             updatePasswordChecklist("");
             updatePasswordMatch();
             updatePasswordStrength("signupPassword", "passwordStrength");
-            window.location.href = "/template/main.html";
+            window.location.href = "/main";
         } else {
             showToast(data.msg || "Signup failed", false);
         }
@@ -329,7 +329,7 @@ function showToast(message, success = true) {
     clearTimeout(showToast.timer);
     showToast.timer = setTimeout(() => {
         toast.className = "toast";
-    }, 3000);
+    }, 5000);
 }
 
 function resetSteps() {

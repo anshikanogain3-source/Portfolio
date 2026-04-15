@@ -197,7 +197,9 @@ button.danger {
     background: var(--surface-strong);
     color: var(--text);
     box-shadow: var(--shadow);
-    transform: translateY(-18px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s ease, transform 0.25s ease;
@@ -206,7 +208,7 @@ button.danger {
 
 .toast.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
 }
 
 .toast.success {

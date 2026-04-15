@@ -51,6 +51,13 @@ def get_current_user():
         return None
 
 
+def ensure_default_categories(email):
+    default_names = ["Food", "Travels"]
+    for name in default_names:
+        if not categories_col.find_one({"email": email, "name": name}):
+            categories_col.insert_one({"email": email, "name": name})
+
+
 # Home Route
 @app.route("/")
 def home():
@@ -89,7 +96,8 @@ def signup():
         "password": hashed_pw
     })
 
-    
+    ensure_default_categories(email)
+
     token = jwt.encode({
         "email": email,
         "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=2)
@@ -509,6 +517,7 @@ def get_categories():
     if not email:
         return jsonify({"msg": "Unauthorized"}), 401
 
+    ensure_default_categories(email)
     data = list(categories_col.find({"email": email}))
 
     for c in data:
@@ -633,4 +642,4 @@ def email_report():
 # ========================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8800))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port)
