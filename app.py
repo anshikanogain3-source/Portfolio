@@ -58,18 +58,11 @@ def home():
 
 @app.route("/main")
 def main_page():
-    token = request.headers.get("Authorization")
+    return render_template("main.html")
 
-    if not token:
-        return jsonify({"msg": "Token missing"}), 401
-
-    try:
-        decoded = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-        return jsonify({"msg": "Welcome to dashboard", "user": decoded}), 200
-    except:
-        return jsonify({"msg": "Invalid token"}), 401
-
-
+@app.route("/profile")
+def profile_page():
+    return render_template("profile.html")
 
 # ========================
 # 🔐 SIGNUP

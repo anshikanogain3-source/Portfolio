@@ -1,4 +1,4 @@
-const API_URL = "window.location.origin";
+const API_URL = window.location.origin;
 
 window.onload = async () => {
     const token = sessionStorage.getItem("token");
@@ -66,7 +66,7 @@ async function changePassword() {
 }
 
 function goBack() {
-    window.location.href = "/template/main.html";
+    window.location.href = "/main";
 }
 
 function showToast(message, success = true) {

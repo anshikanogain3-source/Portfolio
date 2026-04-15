@@ -1,7 +1,7 @@
 // ============================
 // AUTH UI
 // ============================
-const API_URL = "window.location.origin";
+const API_URL = window.location.origin;
 
 const loginBtn = document.getElementById("loginBtn");
 const signupBtn = document.getElementById("signupBtn");
@@ -151,7 +151,7 @@ loginForm.onsubmit = async (e) => {
         if (res.ok) {
             sessionStorage.setItem("token", data.token);
             loginForm.reset();
-            window.location.href = "/template/main.html";
+            window.location.href = "/main";
         }
     } catch (err) {
         showToast("Server error. Please try again.", false);

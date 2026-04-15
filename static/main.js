@@ -1,4 +1,4 @@
-const API_URL = "window.location.origin";
+const API_URL = window.location.origin;
 
 let expenses = [];
 let categories = [];
@@ -8,7 +8,7 @@ let reportSummary = null;
 
 function logout() {
     sessionStorage.removeItem("token");
-    window.location.href = "/template/index.html";
+    window.location.href = "/";
 }
 
 window.onload = () => {
@@ -20,7 +20,7 @@ window.onload = () => {
 };
 
 function goProfile() {
-    window.location.href = "/template/profile.html";
+    window.location.href = "/profile";
 }
 
 async function loadCategories() {
