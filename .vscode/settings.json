@@ -1,5 +1,9 @@
 {
     "python-envs.defaultEnvManager": "ms-python.python:conda",
+<<<<<<< HEAD
     "python-envs.defaultPackageManager": "ms-python.python:conda",
     "liveServer.settings.port": 5501
+=======
+    "python-envs.defaultPackageManager": "ms-python.python:conda"
+>>>>>>> 0076254c98e237a99fad491de965c48de2ebbd0b
 }
