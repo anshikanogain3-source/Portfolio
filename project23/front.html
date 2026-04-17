@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div id="landing">
+    <h1>💼 Job Portal</h1>
+    <p>Find & Manage Opportunities Easily</p>
+    <button onclick="openAuth()">Get Started</button>
+</div>
+
+<!-- AUTH PANEL -->
+<div id="auth" class="hidden">
+    <div class="auth-box">
+        <h2 id="title">Login</h2>
+
+        <input id="name" placeholder="Name" style="display:none;">
+        <input id="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+
+        <button onclick="handleAuth()" id="authBtn">Login</button>
+        <p onclick="toggle()" id="toggleText">Signup</p>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+
+    <div class="header">
+        <h2>💼 Job Listings</h2>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-card">
+        <input id="company" placeholder="Company Name">
+        <input id="titleJob" placeholder="Job Title">
+        <input id="salary" placeholder="Salary">
+        <input id="location" placeholder="Location">
+        <input id="skills" placeholder="Skills (comma separated)">
+        <textarea id="desc" placeholder="Description"></textarea>
+
+        <button id="mainBtn" onclick="addJob()">Add Job</button>
+    </div>
+
+    <!-- JOB LIST -->
+    <div id="jobList" class="grid"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- AUTH SPLIT SCREEN -->
+<div id="authPage">
+    <div class="left">
+        <h1>📝 BlogHub</h1>
+        <p>Share your thoughts with the world</p>
+    </div>
+
+    <div class="right">
+        <h2 id="title">Login</h2>
+
+        <input id="name" placeholder="Name" style="display:none;">
+        <input id="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+
+        <button onclick="handleAuth()" id="authBtn">Login</button>
+        <p onclick="toggle()" id="toggleText">Create new account</p>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none;">
+
+    <div class="navbar">
+        <h2> Blog Dashboard</h2>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-card">
+        <input id="titleB" placeholder="Blog Title">
+        <input id="author" placeholder="Author Name">
+        <input id="category" placeholder="Category">
+        <input id="date" type="date">
+        <textarea id="content" placeholder="Write your blog..."></textarea>
+
+        <button id="mainBtn" onclick="addBlog()">Publish</button>
+    </div>
+
+    <!-- BLOG LIST -->
+    <div id="blogContainer"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

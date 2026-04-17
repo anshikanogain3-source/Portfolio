@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SaaS Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- AUTH -->
+    <div id="auth">
+        <h2 id="title">Login</h2>
+
+        <input id="name" placeholder="Enter name" style="display:none;">
+        <input id="email" placeholder="Enter email">
+        <input id="password" type="password" placeholder="Enter password">
+
+        <button onclick="handleAuth()" id="authBtn">Login</button>
+        <p onclick="toggle()">Don't have account? Signup</p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" style="display:none;">
+
+        <div class="header">
+            <h2>💳 SaaS Subscriptions</h2>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-card">
+            <h3>Add Subscription</h3>
+
+            <div class="form-grid">
+                <input id="uname" placeholder="User Name">
+                <input id="plan" placeholder="Plan Name">
+
+                <select id="billing">
+                    <option value="">Billing Cycle</option>
+                    <option>Monthly</option>
+                    <option>Yearly</option>
+                </select>
+
+                <input id="amount" placeholder="Amount ₹">
+
+                <select id="status">
+                    <option value="">Status</option>
+                    <option>Active</option>
+                    <option>Expired</option>
+                </select>
+            </div>
+
+            <button id="mainBtn" onclick="addSubscription()">Add Subscription</button>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Plan</th>
+                        <th>Billing</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

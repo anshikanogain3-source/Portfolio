@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Collaboration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- AUTH -->
+    <div id="auth">
+        <h2 id="title">Login</h2>
+
+        <input id="name" placeholder="Name" style="display:none;">
+        <input id="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+
+        <button onclick="handleAuth()" id="authBtn">Login</button>
+        <p onclick="toggle()" id="toggleText">Don't have account? Signup</p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" style="display:none;">
+        <div class="header">
+            <h2>👥 Team Tasks</h2>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-card">
+            <input id="titleTask" placeholder="Task Title">
+            <input id="desc" placeholder="Description">
+            <input id="assigned" placeholder="Assign To (Name)">
+            <input id="deadline" type="date">
+
+            <select id="status">
+                <option>Pending</option>
+                <option>In Progress</option>
+                <option>Done</option>
+            </select>
+
+            <button id="mainBtn" onclick="addTask()">Add Task</button>
+        </div>
+
+        <!-- TASK LIST -->
+        <div id="taskList" class="grid"></div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div id="auth">
+        <h2 id="title">Login</h2>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input id="name" style="display:none;">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input id="email">
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input id="password" type="password">
+        </div>
+
+        <button onclick="handleAuth()" id="authBtn">Login</button>
+        <p onclick="toggle()" id="toggleText">Don't have account? Signup</p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" style="display:none;">
+
+        <div class="header">
+            <h2>🍽️ Restaurant Orders</h2>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <!-- MENU -->
+        <div class="form-card">
+            <h3>Add Menu Item</h3>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Item Name</label>
+                    <input id="mname">
+                </div>
+
+                <div class="form-group">
+                    <label>Price</label>
+                    <input id="mprice">
+                </div>
+            </div>
+
+            <button onclick="addMenu()">Add Menu</button>
+        </div>
+
+        <!-- ORDER -->
+        <div class="form-card">
+            <h3>Create Order</h3>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Customer Name</label>
+                    <input id="cname">
+                </div>
+
+                <div class="form-group">
+                    <label>Table Number</label>
+                    <input id="tableNo">
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Select Items</label>
+                    <select id="menuSelect"></select>
+                </div>
+
+            </div>
+
+            <button onclick="addItem()">Add Item</button>
+
+            <p><b>Selected Items:</b> <span id="selectedItems"></span></p>
+            <p><b>Total:</b> ₹<span id="totalDisplay">0</span></p>
+
+            <button onclick="addOrder()">Create Order</button>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Table Number</th>
+                        <th>Items</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

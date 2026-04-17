@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: #f5f1e6;
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+/* AUTH */
+#auth {
+    background: #fffaf0;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid #d6c7a1;
+}
+
+#auth input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px;
+}
+
+/* BUTTON */
+button {
+    background: #8b5e3c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #6b4226;
+}
+
+/* DASHBOARD */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* FORM */
+.form-card {
+    background: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid #ddd;
+}
+
+.form-card input {
+    flex: 1;
+    min-width: 150px;
+    padding: 8px;
+}
+
+/* TABLE */
+.table-card {
+    margin-top: 20px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #a67c52;
+    color: white;
+}
+
+td, th {
+    padding: 10px;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9f6ef;
+}
+
+tbody tr:hover {
+    background: #f0e6d2;
+}
