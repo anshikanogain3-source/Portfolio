@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Anshika Nogain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script><script>
+  if (window.emailjs) {
+    emailjs.init("ubXB9c0IAurxyNs_s");
+  } else {
+    console.error('EmailJS SDK failed to load. Check your internet connection or CDN path.');
+  }
+</script>
+<style>
+/* ══════════════════════════════════════════════════
+   TOKENS  — ink / cream / ember
+══════════════════════════════════════════════════ */
+:root{
+  --ink:   #1f193f;
+  --cream: #f6f2ff;
+  --paper: #ede9ff;
+  --ember: #8b5cf6;
+  --gold:  #ec4899;
+  --moss:  #22d3ee;
+  --slate: #5361a3;
+  --muted: #7c6fb7;
+  --border:#d8cfff;
+
+  --f-display:'Bebas Neue',sans-serif;
+  --f-serif:'Libre Baskerville',serif;
+  --f-mono:'IBM Plex Mono',monospace;
+  --f-body:'Manrope',sans-serif;
+  --section-gutter: clamp(22px, 4vw, 56px);
+  --section-width: min(1180px, calc(100% - (var(--section-gutter) * 2)));
+  --section-space: clamp(64px, 8vw, 104px);
+}
+
+/* dark mode */
+[data-theme="dark"]{
+  --ink:   #f7f4ff;
+  --cream: #0f0c26;
+  --paper: #18132f;
+  --ember: #8b5cf6;
+  --gold:  #ec4899;
+  --moss:  #22d3ee;
+  --slate: #c3bfe2;
+  --muted: #b8adf2;
+  --border:#3c2f6f;
+}
+
+/* ══ RESET ═════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:15px;
+  line-height:1.65;
+  overflow-x:hidden;
+  transition:background .45s,color .45s;
+}
+
+
+/* ══ NOISE OVERLAY ═════════════════════════════ */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.03;
+}
+
+/* ══ NAV ════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--section-gutter);height:56px;
+  border-bottom:1px solid var(--border);
+  background:var(--cream);
+  transition:background .45s,border-color .45s;
+}
+.nav-wordmark{
+  font-family:var(--f-display);
+  font-size:24px;letter-spacing:.08em;
+  color:var(--ink);text-decoration:none;
+  transition:color .3s;
+  white-space:nowrap;
+}
+.nav-wordmark span{color:var(--ember)}
+.nav-center{
+  position:absolute;left:50%;transform:translateX(-50%);
+  display:flex;gap:0;
+  border:1px solid var(--border);border-radius:2px;overflow:hidden;
+}
+.nav-center a{
+  padding:6px 20px;font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  text-decoration:none;border-right:1px solid var(--border);
+  transition:background .2s,color .2s;
+}
+.nav-center a:last-child{border-right:none}
+.nav-center a:hover,.nav-center a.active{background:var(--ember);color:#fff}
+.nav-right{display:flex;align-items:center;gap:16px}
+
+/* THEME TOGGLE */
+.tog{
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;
+  color:var(--muted);text-transform:uppercase;
+}
+.tog-pill{
+  width:40px;height:22px;border-radius:2px;
+  border:1px solid var(--border);background:var(--paper);
+  position:relative;cursor:pointer;transition:background .35s;
+  flex-shrink:0;
+}
+.tog-pill::after{
+  content:'';position:absolute;top:3px;left:3px;
+  width:14px;height:14px;border-radius:1px;
+  background:var(--ink);
+  transition:left .3s cubic-bezier(.34,1.56,.64,1),background .35s;
+}
+[data-theme="dark"] .tog-pill::after{left:21px;background:var(--ember)}
+.nav-hire{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;
+  text-transform:uppercase;padding:7px 18px;
+  background:var(--ink);color:var(--cream);
+  border:none;cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:background .2s,color .2s;
+}
+.nav-hire:hover{background:var(--ember)}
+
+/* ══ HERO — FULL-BLEED EDITORIAL ═══════════════ */
+#hero{
+  min-height:100vh;padding-top:56px;
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:2px solid var(--ink);
+  position:relative;z-index:1;
+}
+.hero-left{
+  padding:60px var(--section-gutter) 60px;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.hero-overline{
+  font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ember);margin-bottom:28px;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-overline::before{content:'';width:32px;height:1px;background:var(--ember)}
+.hero-headline{
+  font-family:var(--f-display);
+  font-size:clamp(72px,9vw,132px);
+  line-height:.95;letter-spacing:.03em;
+  color:var(--ink);margin-bottom:0;
+  word-break:keep-all;
+}
+.hero-headline .outline{
+  -webkit-text-stroke:2px var(--ink);
+  color:transparent;
+}
+[data-theme="dark"] .hero-headline .outline{-webkit-text-stroke-color:#f7f4ff}
+.hero-foot{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  border-top:1px solid var(--border);padding-top:28px;margin-top:40px;
+}
+.hero-desc{
+  font-size:15px;color:var(--slate);line-height:1.75;max-width:360px;
+  font-family:var(--f-serif);font-style:italic;
+}
+.hero-cta{
+  display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex-shrink:0;
+}
+.btn-main{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;padding:12px 24px;
+  background:var(--ember);color:#fff;text-decoration:none;
+  display:inline-block;transition:transform .2s;
+  border:none;cursor:pointer;
+}
+.btn-main:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--ink)}
+.btn-ghost{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;padding:11px 24px;
+  background:transparent;color:var(--ink);text-decoration:none;
+  display:inline-block;transition:all .2s;
+  border:1px solid var(--ink);cursor:pointer;
+}
+.btn-ghost:hover{background:var(--ink);color:var(--cream)}
+
+.hero-right{
+  display:grid;grid-template-rows:1fr auto;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+.hero-right-art{
+  display:flex;align-items:center;justify-content:center;
+  padding:40px;position:relative;
+}
+.hero-avatar-frame{
+  width:260px;height:320px;
+  border:2px solid rgba(242,237,223,.15);
+  position:relative;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-avatar-frame::before{
+  content:'';position:absolute;inset:0;
+  background:conic-gradient(from 0deg,var(--ember)20%,var(--gold) 40%,transparent 60%,var(--ember)80%);
+  opacity:.12;animation:spin 12s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar-letter{
+  font-family:var(--f-display);font-size:160px;
+  color:rgba(242,237,223,.08);line-height:1;
+  position:absolute;
+}
+.avatar-badge{
+  position:relative;z-index:1;text-align:center;
+}
+.avatar-initial{
+  width:80px;height:80px;border-radius:50%;
+  border:2px solid var(--ember);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-display);font-size:42px;
+  color:var(--ember);margin:0 auto 16px;
+  background:rgba(232,76,30,.08);
+}
+.avatar-name{
+  font-family:var(--f-display);font-size:22px;
+  letter-spacing:.1em;color:var(--cream);margin-bottom:4px;
+}
+.avatar-role{
+  font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.1em;color:rgba(242,237,223,.4);
+  text-transform:uppercase;
+}
+.hero-tags{
+  padding:20px 28px;border-top:1px solid rgba(242,237,223,.1);
+  display:flex;gap:8px;flex-wrap:wrap;
+}
+.htag{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;
+  padding:4px 12px;border:1px solid rgba(242,237,223,.15);
+  color:rgba(242,237,223,.5);text-transform:uppercase;
+}
+.hero-counter{
+  position:absolute;top:28px;right:28px;
+  font-family:var(--f-display);font-size:80px;color:rgba(242,237,223,.05);
+  line-height:1;
+}
+
+/* ══ TICKER ════════════════════════════════════ */
+.ticker{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  overflow:hidden;padding:12px 0;background:var(--ember);
+  position:relative;z-index:1;
+}
+.ticker-inner{
+  display:flex;gap:0;white-space:nowrap;
+  animation:ticker 22s linear infinite;
+}
+.ticker-item{
+  font-family:var(--f-display);font-size:15px;letter-spacing:.08em;
+  color:#fff;padding:0 32px;display:flex;align-items:center;gap:32px;flex-shrink:0;
+}
+.ticker-item::after{content:'◆';font-size:8px}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ══ BENTO ABOUT ═══════════════════════════════ */
+#about{
+  width:var(--section-width);
+  margin:0 auto;
+  padding:var(--section-space) 0;display:grid;
+  grid-template-columns:minmax(0, 1.65fr) minmax(320px, 1fr);
+  grid-template-rows:auto auto;
+  gap:18px;
+  border-bottom:1px solid var(--border);
+  position:relative;z-index:1;
+}
+.bento{
+  background:var(--cream);padding:34px 32px;
+  transition:background .45s,border-color .3s,transform .3s;
+  border:1px solid var(--border);
+}
+[data-theme="dark"] .bento{background:var(--paper)}
+.bento:hover{transform:translateY(-2px);border-color:rgba(139,92,246,.3)}
+.bento-a{grid-column:1;grid-row:1/3}
+.bento-b{grid-column:2;grid-row:1}
+.bento-c{grid-column:2;grid-row:2}
+
+.bento-label{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:22px;display:flex;align-items:center;gap:8px;
+}
+.bento-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.bento-label i{color:var(--ember)}
+
+.bento-a h2{
+  font-family:var(--f-display);font-size:clamp(52px,5vw,70px);
+  line-height:.95;letter-spacing:.02em;
+  color:var(--ink);margin-bottom:24px;
+}
+.bento-a h2 em{
+  font-family:var(--f-serif);font-style:italic;
+  font-size:.7em;color:var(--ember);
+}
+.bento-a p{
+  font-size:15px;color:var(--slate);line-height:1.85;
+  margin-bottom:14px;font-family:var(--f-serif);
+}
+.bento-a p strong{color:var(--ink);font-style:italic}
+
+.stat-big{
+  font-family:var(--f-display);font-size:64px;
+  line-height:1;color:var(--ink);margin-bottom:6px;
+}
+.stat-big span{font-size:.4em;color:var(--ember);vertical-align:super}
+.stat-label{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.interest-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.interest-list li{
+  font-family:var(--f-serif);font-size:14px;color:var(--ink);
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid var(--border);padding-bottom:10px;
+}
+.interest-list li:last-child{border-bottom:none;padding-bottom:0}
+.il-num{font-family:var(--f-mono);font-size:10px;color:var(--ember);flex-shrink:0}
+
+.avail-card{
+  background:var(--moss);padding:20px;border-radius:2px;
+  display:flex;align-items:center;gap:14px;margin-top:20px;
+}
+.avail-dot{width:9px;height:9px;border-radius:50%;background:#7effa0;flex-shrink:0;animation:pulse2 2s infinite}
+@keyframes pulse2{0%,100%{box-shadow:0 0 0 0 rgba(126,255,160,.4)}50%{box-shadow:0 0 0 6px rgba(126,255,160,0)}}
+.avail-text{font-family:var(--f-mono);font-size:11px;color:#fff;letter-spacing:.05em}
+
+/* ══ SKILLS — LIST MODE ════════════════════════ */
+#skills{
+  padding:96px 0;border-bottom:1px solid var(--border);
+  position:relative;z-index:1;
+  background:
+    radial-gradient(circle at top left, rgba(139,92,246,.08), transparent 34%),
+    linear-gradient(180deg, rgba(246,242,255,.96), rgba(237,233,255,.9));
+}
+.skills-wrap{
+  width:var(--section-width);
+  margin:0 auto;
+}
+.skills-head{
+  padding:0 0 40px;display:flex;align-items:flex-end;justify-content:space-between;
+  gap:32px;
+}
+.skills-head h2{
+  font-family:var(--f-display);font-size:clamp(60px,7vw,100px);
+  line-height:.9;letter-spacing:.02em;color:var(--ink);
+}
+.skills-head h2 em{display:block;color:var(--ember);font-style:normal}
+.skills-note{
+  font-family:var(--f-body);
+  font-size:15px;color:var(--slate);max-width:360px;text-align:right;
+  line-height:1.8;
+}
+
+.skills-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:18px;
+  margin-top:24px;
+}
+.skill-panel{
+  display:grid;gap:10px;padding:22px 24px;
+  min-height:118px;
+  border:1px solid rgba(124,111,183,.22);border-radius:18px;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 18px 44px rgba(31,25,63,.06);
+  transition:transform .25s,background .35s,border-color .35s,box-shadow .35s;
+}
+[data-theme="dark"] #skills{
+  background:
+    radial-gradient(circle at top left, rgba(34,211,238,.08), transparent 32%),
+    linear-gradient(180deg, rgba(24,19,47,.96), rgba(15,12,38,.98));
+}
+[data-theme="dark"] .skill-panel{
+  background:rgba(255,255,255,.04);
+  border-color:rgba(195,191,226,.18);
+  box-shadow:none;
+}
+.skill-panel:hover{
+  transform:translateY(-4px);
+  border-color:rgba(139,92,246,.4);
+  box-shadow:0 22px 54px rgba(31,25,63,.12);
+}
+.skill-title{
+  font-family:var(--f-body);font-size:18px;font-weight:700;
+  color:var(--ink);
+}
+.skill-meta{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);
+}
+.skills-divider{
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--border), transparent);
+  margin:34px 0 28px;
+}
+.tool-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+  gap:14px;
+  margin-top:0;
+}
+.tool-item{
+  display:flex;align-items:center;
+  min-height:64px;
+  font-family:var(--f-body);font-size:16px;font-weight:600;color:var(--ink);
+  padding:16px 18px;border-radius:16px;border:1px solid rgba(124,111,183,.18);
+  background:rgba(255,255,255,.7);
+  box-shadow:0 14px 34px rgba(31,25,63,.05);
+}
+[data-theme="dark"] .tool-item{
+  background:rgba(255,255,255,.04);
+  border-color:rgba(195,191,226,.16);
+  box-shadow:none;
+}
+
+/* ══ PROJECTS — MAGAZINE SPREAD ════════════════ */
+#projects{
+  width:var(--section-width);
+  margin:0 auto;
+  padding:var(--section-space) 0;border-bottom:1px solid var(--border);
+  position:relative;z-index:1;
+}
+.proj-head{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  margin-bottom:40px;border-bottom:3px solid var(--ink);padding-bottom:18px;gap:28px;
+}
+.proj-head h2{
+  font-family:var(--f-display);font-size:clamp(48px,6vw,90px);
+  letter-spacing:.02em;line-height:1;color:var(--ink);
+}
+.proj-head-meta{text-align:right;padding-top:8px}
+.proj-head-meta p{font-family:var(--f-serif);font-style:italic;font-size:13px;color:var(--muted)}
+.proj-demo-section{margin-bottom:26px;padding:18px 0 12px;border-bottom:1px solid var(--border)}
+.proj-demo-title{font-family:var(--f-display);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:12px}
+.proj-demo-list{display:flex;flex-wrap:wrap;gap:12px}
+.proj-demo-link{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;border:1px solid var(--border);border-radius:999px;color:var(--ember);text-decoration:none;transition:transform .2s,background .2s,color .2s}
+.proj-demo-link:hover{background:var(--ember);color:#fff;transform:translateY(-2px)}
+.proj-count{font-family:var(--f-display);font-size:42px;color:var(--border)}
+
+.proj-grid{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:18px;
+}
+.proj-card{
+  background:var(--cream);padding:32px 30px;
+  position:relative;overflow:hidden;
+  transition:background .45s;
+  display:flex;flex-direction:column;
+  min-height:260px;
+  border:1px solid var(--border);
+}
+[data-theme="dark"] .proj-card{background:var(--paper)}
+.proj-card.p1{grid-column:1;grid-row:1/3}
+.proj-card.p2,.proj-card.p3{grid-column:span 1}
+
+.proj-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--ember);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s;
+}
+.proj-card:hover::before{transform:scaleX(1)}
+.proj-card:hover{background:var(--paper)}
+[data-theme="dark"] .proj-card:hover{background:#252218}
+
+.proj-num{
+  font-family:var(--f-display);font-size:80px;line-height:1;
+  color:var(--border);position:absolute;top:18px;right:22px;
+}
+.proj-tags-row{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.proj-tag{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 10px;
+  border:1px solid var(--border);color:var(--muted);
+}
+.proj-tag.em{border-color:var(--ember);color:var(--ember);background:rgba(232,76,30,.06)}
+.proj-title{
+  font-family:var(--f-display);font-size:clamp(24px,2.5vw,38px);
+  letter-spacing:.02em;line-height:1.05;color:var(--ink);margin-bottom:16px;
+  max-width:calc(100% - 96px);
+}
+.proj-desc{font-size:14px;color:var(--slate);line-height:1.85;flex:1;margin-bottom:24px;font-family:var(--f-serif);max-width:60ch}
+.proj-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--border);padding-top:16px;margin-top:auto;gap:16px;
+}
+.proj-link{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ember);text-decoration:none;
+  display:flex;align-items:center;gap:6px;transition:gap .2s;
+}
+.proj-link:hover{gap:12px}
+.proj-stack{display:flex;gap:4px;flex-wrap:wrap}
+.proj-s{
+  font-family:var(--f-mono);font-size:9px;color:var(--muted);
+  background:var(--paper);padding:2px 7px;border-radius:1px;
+}
+[data-theme="dark"] .proj-s{background:var(--cream)10}
+
+.proj-row2{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:18px;margin-top:18px;
+}
+
+/* ══ RESUME — FULL-PAGE ═════════════════════════ */
+#resume{
+  width:var(--section-width);
+  margin:0 auto;
+  padding:var(--section-space) 0;border-bottom:1px solid var(--border);
+  position:relative;z-index:1;
+}
+.resume-head{
+  display:grid;grid-template-columns:1fr auto;
+  align-items:flex-end;margin-bottom:48px;
+  border-bottom:3px solid var(--ink);padding-bottom:16px;gap:24px;
+}
+.resume-head h2{
+  font-family:var(--f-display);font-size:clamp(48px,6vw,90px);
+  letter-spacing:.02em;line-height:1;color:var(--ink);
+}
+.resume-dl-group{display:flex;gap:10px}
+
+.resume-body{display:grid;grid-template-columns:260px 1fr;gap:48px}
+
+/* Resume preview */
+.resume-preview{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--paper);padding:24px;margin-bottom:32px}
+.resume-preview iframe{width:100%;min-height:520px;border:none;border-radius:12px;}
+.resume-preview-note{font-size:13px;color:var(--muted);margin-top:14px}
+.resume-preview-note a{color:var(--ember);text-decoration:underline}
+
+/* Sidebar */
+.rv-sidebar{display:flex;flex-direction:column;gap:28px}
+.rv-block{border:1px solid var(--border);padding:22px}
+.rv-block-title{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ember);
+  margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:8px;
+}
+.rv-contact-item{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:12px;color:var(--muted);margin-bottom:10px;
+  font-family:var(--f-mono);
+}
+.rv-contact-item a{color:var(--ember);text-decoration:none;word-break:break-all}
+.rv-contact-item:last-child{margin-bottom:0}
+.rv-ci-icon{color:var(--slate);flex-shrink:0;font-size:13px;margin-top:1px}
+
+.rv-sk{margin-bottom:12px}
+.rv-sk-top{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px}
+.rv-sk-top span:first-child{color:var(--ink);font-family:var(--f-serif)}
+.rv-sk-top span:last-child{font-family:var(--f-mono);font-size:11px;color:var(--ember)}
+.rv-sk-bar{height:2px;background:var(--border);overflow:hidden}
+.rv-sk-fill{height:100%;background:var(--moss);transform:scaleX(0);transform-origin:left;transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.rv-sk-fill.on{transform:scaleX(1)}
+.rv-lang{display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:8px}
+.rv-lang span:first-child{font-family:var(--f-serif);color:var(--ink)}
+.rv-lang-lv{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ember);
+  border:1px solid rgba(232,76,30,.3);padding:2px 8px;
+}
+
+/* Main CV */
+.rv-main-cv{display:flex;flex-direction:column;gap:36px}
+.rv-section-title{
+  font-family:var(--f-display);font-size:28px;letter-spacing:.06em;
+  color:var(--ink);border-bottom:1px solid var(--border);
+  padding-bottom:8px;margin-bottom:20px;
+}
+.rv-entry{
+  display:grid;grid-template-columns:110px 1fr;
+  gap:20px;padding-bottom:20px;
+  border-bottom:1px dashed var(--border);
+}
+.rv-entry:last-child{border-bottom:none;padding-bottom:0}
+.rv-entry-date{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.05em;
+  color:var(--muted);line-height:1.5;padding-top:3px;
+}
+.rv-entry-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--ember);
+  flex-shrink:0;margin-top:6px;
+}
+.rv-entry-title{font-family:var(--f-serif);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:3px}
+.rv-entry-org{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ember);margin-bottom:10px}
+.rv-entry-desc{font-size:13px;color:var(--slate);line-height:1.8}
+.rv-entry-desc li{margin-bottom:4px;list-style:none;padding-left:14px;position:relative}
+.rv-entry-desc li::before{content:'—';position:absolute;left:0;color:var(--muted)}
+.rv-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.rv-tag{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 8px;
+  border:1px solid var(--border);color:var(--muted);
+}
+
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cert-item{
+  font-family:var(--f-serif);font-size:13px;color:var(--ink);
+  padding:10px 14px;border-left:2px solid var(--ember);
+  background:var(--paper);
+}
+[data-theme="dark"] .cert-item{background:var(--cream)08}
+.cert-item span{display:block;font-family:var(--f-mono);font-size:10px;color:var(--muted);margin-top:3px}
+
+/* ══ EDUCATION ════════════════════════════════ */
+#education{
+  width:var(--section-width);
+  margin:0 auto;
+  padding:var(--section-space) 0;border-bottom:1px solid var(--border);
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:minmax(0, 1fr);gap:0;align-items:start;
+}
+.edu-left h2{
+  font-family:var(--f-display);font-size:clamp(60px,7vw,100px);
+  letter-spacing:.02em;line-height:.9;color:var(--ink);margin-bottom:32px;
+  white-space:nowrap;
+}
+.edu-left h2 em{color:var(--ember);font-style:normal;display:inline}
+.edu-card{
+  border:1px solid var(--border);padding:30px;margin-bottom:20px;
+  position:relative;overflow:hidden;
+  transition:border-color .25s;
+  background:var(--cream);
+}
+[data-theme="dark"] .edu-card{background:var(--paper)}
+.edu-right{display:none !important}
+.edu-card:hover{border-color:var(--ember)}
+.edu-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--ember),var(--gold));
+}
+.edu-deg{font-family:var(--f-serif);font-weight:700;font-size:16px;color:var(--ink);margin-bottom:4px}
+.edu-school{font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;color:var(--ember);margin-bottom:8px}
+.edu-yr{font-family:var(--f-mono);font-size:10px;color:var(--muted);margin-bottom:12px}
+.edu-desc{font-size:13px;color:var(--slate);line-height:1.75;font-family:var(--f-serif)}
+.edu-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.edu-pill{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 9px;
+  border:1px solid var(--border);color:var(--muted);
+}
+
+
+/* ══ CONTACT ══════════════════════════════════ */
+#contact{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--border);
+  position:relative;z-index:1;
+  min-height:60vh;
+}
+.contact-left{
+  padding:var(--section-space) var(--section-gutter);background:var(--ink);
+  display:flex;flex-direction:column;justify-content:space-between;
+  transition:background .45s;
+}
+[data-theme="dark"] .contact-left{background:#0d0b08}
+.contact-left h2{
+  font-family:var(--f-display);
+  font-size:clamp(60px,7vw,110px);
+  line-height:.9;letter-spacing:.02em;color:var(--cream);
+}
+.contact-left h2 em{color:var(--ember);font-style:normal}
+.contact-social{display:flex;flex-direction:column;gap:12px;margin-top:40px}
+.cs-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;border-bottom:1px solid rgba(242,237,223,.1);
+  text-decoration:none;transition:padding-left .2s;
+}
+.cs-link:hover{padding-left:8px}
+.cs-link-name{font-family:var(--f-display);font-size:24px;letter-spacing:.06em;color:var(--cream);transition:color .2s}
+.cs-link:hover .cs-link-name{color:var(--ember)}
+.cs-link-handle{font-family:var(--f-mono);font-size:10px;color:rgba(242,237,223,.3);letter-spacing:.06em}
+.cs-arrow{font-size:18px;color:rgba(242,237,223,.3);transition:color .2s}
+.cs-link:hover .cs-arrow{color:var(--ember)}
+
+.contact-right{padding:var(--section-space) var(--section-gutter);display:flex;flex-direction:column;justify-content:center}
+.contact-right h3{
+  font-family:var(--f-display);font-size:32px;letter-spacing:.05em;
+  color:var(--ink);margin-bottom:32px;
+}
+.cf-group{margin-bottom:20px}
+.cf-label{
+  display:block;font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;
+}
+.cf-input,.cf-textarea{
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);
+  padding:10px 0;font-family:var(--f-serif);font-size:14px;color:var(--ink);
+  outline:none;transition:border-color .25s;resize:none;
+}
+.cf-input:focus,.cf-textarea:focus{border-color:var(--ember)}
+.cf-input::placeholder,.cf-textarea::placeholder{color:var(--muted);font-style:italic}
+.cf-textarea{min-height:90px}
+.cf-submit{
+  margin-top:12px;font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:var(--ember);color:#fff;border:none;
+  padding:14px 32px;cursor:pointer;transition:all .2s;
+}
+.cf-submit:hover{transform:translate(-2px,-2px);box-shadow:2px 2px 0 var(--ink)}
+
+/* ══ FOOTER ═══════════════════════════════════ */
+footer{
+  background:var(--cream);border-top:1px solid var(--border);
+  padding:24px var(--section-gutter);
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;z-index:1;
+  transition:background .45s;
+}
+.footer-copy{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
+.footer-copy a{color:var(--ember);text-decoration:none}
+.footer-status{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
+.f-dot{width:7px;height:7px;border-radius:50%;background:#7effa0;animation:pulse2 2s infinite}
+
+[data-theme="dark"] .avatar-role,
+[data-theme="dark"] .htag,
+[data-theme="dark"] .proj-tag,
+[data-theme="dark"] .proj-s,
+[data-theme="dark"] .edu-pill,
+[data-theme="dark"] .rv-tag,
+[data-theme="dark"] .footer-copy,
+[data-theme="dark"] .footer-status{
+  color:#d9d4f3;
+}
+[data-theme="dark"] .proj-desc,
+[data-theme="dark"] .rv-entry-desc,
+[data-theme="dark"] .edu-desc,
+[data-theme="dark"] .skills-note{
+  color:#d2cdea;
+}
+[data-theme="dark"] .cs-link-handle,
+[data-theme="dark"] .cs-arrow{
+  color:rgba(247,244,255,.72);
+}
+[data-theme="dark"] .cf-input,
+[data-theme="dark"] .cf-textarea{
+  color:#f7f4ff;
+  border-bottom-color:rgba(216,207,255,.35);
+}
+[data-theme="dark"] .cf-input::placeholder,
+[data-theme="dark"] .cf-textarea::placeholder,
+[data-theme="dark"] .cf-label{
+  color:#cfc7f2;
+}
+[data-theme="dark"] .contact-right{
+  background:#14102b;
+}
+[data-theme="dark"] .contact-left h2,
+[data-theme="dark"] .cs-link-name{
+  color:#f7f4ff;
+}
+[data-theme="dark"] .contact-right h3{
+  color:#f7f4ff;
+}
+
+/* ══ SCROLL REVEAL ════════════════════════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-20px);transition:opacity .7s,transform .7s}
+.reveal-l.in{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(20px);transition:opacity .7s,transform .7s}
+.reveal-r.in{opacity:1;transform:none}
+
+/* ══ RESPONSIVE ═══════════════════════════════ */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-center{display:none}
+  #hero{grid-template-columns:1fr;grid-template-rows:auto auto}
+  .hero-left{padding:40px 20px}
+  .hero-right{min-height:340px}
+  #about{width:min(100% - 40px, 1180px);grid-template-columns:1fr;padding:40px 0;grid-template-rows:auto}
+  .bento-a,.bento-b,.bento-c{grid-column:1;grid-row:auto}
+  #skills{padding:64px 0}
+  .skills-wrap{width:min(100% - 40px, 1120px)}
+  .skills-head{padding:0 0 28px;flex-direction:column;align-items:flex-start}
+  .skills-note{text-align:left;max-width:none}
+  .skills-list{grid-template-columns:1fr 1fr}
+  .tool-list{grid-template-columns:1fr 1fr}
+  #projects{width:min(100% - 40px, 1180px);padding:60px 0}
+  .proj-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .proj-card.p1{grid-column:1;grid-row:auto}
+  .proj-row2{grid-template-columns:1fr}
+  #resume{width:min(100% - 40px, 1180px);padding:60px 0}
+  .resume-body{grid-template-columns:1fr}
+  #education{width:min(100% - 40px, 1180px);grid-template-columns:1fr;padding:60px 0}
+  #contact{grid-template-columns:1fr}
+  .contact-left{min-height:40vh}
+  .contact-right{padding:60px 20px}
+  footer{padding:20px;flex-direction:column;gap:8px;text-align:center}
+  .cert-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .skills-list,
+  .tool-list{grid-template-columns:1fr}
+  .skill-panel,
+  .tool-item{min-height:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════ -->
+<nav>
+  <a href="#" class="nav-wordmark">ANSHIKA<span>.</span></a>
+  <div class="nav-center">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Work</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <label class="tog">
+      <span id="tog-label">Light</span>
+      <div class="tog-pill" onclick="toggleTheme()"></div>
+    </label>
+    <a href="#contact" class="nav-hire">Hire Me</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-left">
+    <div>
+      <div class="hero-overline"> Data Science · AI Research</div>
+      <h1 class="hero-headline reveal-l">
+        ANSHI<span class="outline">KA</span><br/>
+        NOGAIN
+      </h1>
+    </div>
+    <div class="hero-foot reveal">
+      <p class="hero-desc">
+        Aspiring Data Scientist turning raw, chaotic numbers into decisions that actually matter — with machine learning, a good eye for patterns, and relentless curiosity.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-main">View Work →</a>
+        <a href="#resume" class="btn-ghost">Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-art">
+      <div class="hero-counter">01</div>
+      <div class="hero-avatar-frame">
+        <div class="avatar-letter">A</div>
+        <div class="avatar-badge">
+          <div class="avatar-initial">A</div>
+          <div class="avatar-name">ANSHIKA NOGAIN</div>
+          <div class="avatar-role">Aspiring Data Scientist</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-tags">
+      <span class="htag">Python</span>
+      <span class="htag">TensorFlow</span>
+      <span class="htag">Scikit-learn</span>
+      <span class="htag">SQL</span>
+      <span class="htag">Power BI</span>
+      <span class="htag">Computer Vision</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TICKER ════════════════════════════════════ -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker-inner">
+    <div class="ticker-item">Machine Learning</div>
+    <div class="ticker-item">Data Visualisation</div>
+    <div class="ticker-item">Deep Learning</div>
+    <div class="ticker-item">Query Language</div>
+    <div class="ticker-item">Statistical Modelling</div>
+    <div class="ticker-item">Machine Learning</div>
+    <div class="ticker-item">Data Visualisation</div>
+    <div class="ticker-item">Deep Learning</div>
+    <div class="ticker-item">Computer Vision</div>
+    <div class="ticker-item">Statistical Modelling</div>
+  </div>
+</div>
+
+<!-- ══ BENTO ABOUT ════════════════════════════════ -->
+<section id="about">
+  <div class="bento bento-a reveal-l">
+    <div class="bento-label"><i>◈</i> Profile</div>
+    <h2>CURIOUS<br/>MIND, <em>data-driven<br/>soul.</em></h2>
+    <p>I'm <strong>Anshika Nogain</strong>, a Data Science student with strong business intuition and technical fluency. I build practical analytics solutions that translate data into insight and action.</p>
+    <p>Passionate about machine learning, visual storytelling, and problem-solving, I enjoy turning complex datasets into clear decisions and human-centered products.</p>
+
+    <div class="avail-card">
+      <div class="avail-dot"></div>
+      <div class="avail-text">Available for internships & entry-level roles — let's talk.</div>
+    </div>
+  </div>
+  <div class="bento bento-b reveal">
+    <div class="bento-label"><i>◆</i> Background</div>
+    <p>Bringing academic learning and real project experience together in model development, dashboard delivery, and data storytelling.</p>
+  </div>
+  <div class="bento bento-c reveal">
+    <div class="bento-label"><i>▸</i> Interests</div>
+    <ul class="interest-list">
+      <li><span class="il-num">01</span>Machine Learning </li>
+      <li><span class="il-num">02</span>Database Management</li>
+      <li><span class="il-num">03</span>Data Visualisation & Storytelling</li>
+      <li><span class="il-num">04</span>Predictive Analytics</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ SKILLS ════════════════════════════════════ -->
+<section id="skills">
+  <div class="skills-wrap">
+    <div class="skills-head reveal">
+      <h2>SKILLS<br/><em>& TOOLS</em></h2>
+      <p class="skills-note">
+        Proficient in Python, SQL, and key ML frameworks. Experienced with data visualisation tools and cloud platforms. Always eager to learn new technologies and expand my toolkit.
+      </p>
+    </div>
+    <div class="skills-list reveal">
+      <div class="skill-panel">
+        <div class="skill-title">Python</div>
+        <div class="skill-meta">Language</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">Kaggle</div>
+        <div class="skill-meta">NLP / LLMs</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">Pandas</div>
+        <div class="skill-meta">Data Analysis</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">SQL/NOSQL</div>
+        <div class="skill-meta">Databases</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">Power BI</div>
+        <div class="skill-meta">Data Visualisation</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">Matplotlib</div>
+        <div class="skill-meta">Data Visualisation</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">MongoDB</div>
+        <div class="skill-meta">Databases</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">HTML/CSS</div>
+        <div class="skill-meta">Web Development</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">C++</div>
+        <div class="skill-meta">Programming Language</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">JavaScript</div>
+        <div class="skill-meta">Web Development</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">Java</div>
+        <div class="skill-meta">Programming Language</div>
+      </div>
+      <div class="skill-panel">
+        <div class="skill-title">EXCEL</div>
+        <div class="skill-meta">Data Analysis</div>
+      </div>
+    </div>
+    <div class="skills-divider"></div>
+    <div class="tool-list reveal">
+      <div class="tool-item">Git</div>
+      <div class="tool-item">Jupyter</div>
+      <div class="tool-item">VS Code</div>
+      <div class="tool-item">GitHub</div>
+      <div class="tool-item">Flask</div>
+      <div class="tool-item">AWS S3</div>
+      <div class="tool-item">MongoDB</div>
+      <div class="tool-item">Cloudinary</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══════════════════════════════════ -->
+<section id="projects">
+  <div class="proj-head reveal">
+    <h2>SELECTED<br/>WORK</h2>
+    <div class="proj-head-meta">
+      <div class="proj-count">06</div>
+      <p>Projects across ML,<br/>web development</p>
+    </div>
+  </div>
+
+  <div class="proj-demo-section reveal">
+    <div class="proj-demo-title">Live demos</div>
+    <div class="proj-demo-list">
+      <a class="proj-demo-link" href="https://personal-expense-tracker-h1sd.onrender.com" target="_blank" rel="noopener">Expense Tracker</a>
+    </div>
+  </div>
+
+  <div class="proj-grid">
+    <div class="proj-card p1 reveal-l">
+      <div class="proj-num">01</div>
+      <div class="proj-tags-row">
+        <span class="proj-tag em">Featured</span>
+        <span class="proj-tag">web development</span>
+        <span class="proj-tag">Analytics</span>
+      </div>
+      <div class="proj-title">PERSONAL EXPENSE TRACKER</div>
+      <p class="proj-desc">A personal finance management web application built using Flask and MongoDB that helps users track and manage their expenses efficiently through real-time analysis and interactive charts.</p>
+      <div class="proj-foot">
+        <a href="https://github.com/anshikanogain3-source/personal-expense-tracker" class="proj-link">GitHub →</a>
+        <div class="proj-stack">
+          <span class="proj-s">Python</span><span class="proj-s">Flask</span><span class="proj-s">MongoDB</span><span class="proj-s">Chart.js</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card p2 reveal">
+      <div class="proj-num">02</div>
+      <div class="proj-tags-row"><span class="proj-tag">NLP</span><span class="proj-tag">BERT</span></div>
+      <div class="proj-title">SENTIMENT ANALYSIS DASHBOARD</div>
+      <p class="proj-desc">Real-time Twitter sentiment classifier using BERT fine-tuned on 50K tweets. Live brand monitoring dashboard built in Flask.</p>
+      <div class="proj-foot">
+        <a href="https://github.com/anshikanogain3-source/sentiment-analysis-dashboard" class="proj-link">GitHub →</a>
+        <div class="proj-stack"><span class="proj-s">BERT</span><span class="proj-s">Flask</span></div>
+      </div>
+    </div>
+</section>
+
+<!-- ══ RESUME ════════════════════════════════════ -->
+<section id="resume">
+  <div class="resume-head reveal">
+    <h2>CURRICULUM<br/>VITAE</h2>
+    <div class="resume-dl-group">
+      <a class="btn-main" href="https://drive.google.com/uc?export=download&id=1MFO0L_2dLgzYObRMpAxHhI8whZomDpT0" target="_blank" rel="noopener">↓ Download PDF</a>
+    </div>
+  </div>
+      <div>
+        <div class="rv-section-title">CERTIFICATIONS</div>
+        <div class="cert-grid">
+          <div class="cert-item">Machine Learning Specialisation<span>Andrew Ng · Coursera · 2023</span></div>
+          <div class="cert-item">Power BI Data Analyst<span>Microsoft Official · 2024</span></div>
+          <div class="cert-item">SQL for Data Science<span>UC Davis · Coursera · 2022</span></div>
+          <div class="cert-item">ADCA (Advance Diploma in Computer Applications)<span>UTech Education · 2022</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDUCATION ══════════════════════════════════ -->
+<section id="education">
+  <div class="edu-left reveal-l">
+    <h2>EDU<em>CATION</em></h2>
+    </div>
+      <div class="edu-card">
+      <div class="edu-deg">MCA (Master's in Computer Applications)</div>
+      <div class="edu-school">Data Science</div>
+      <div class="edu-yr">2025 – 2027</div>
+      <div class="edu-desc">Pursuing a Master of Computer Applications with a focus on Data Science and Machine Learning. Gaining expertise in statistical analysis, data visualization, and predictive modeling.</div>
+      <div class="edu-pills"><span class="edu-pill">Data Science</span><span class="edu-pill">Data Structures</span><span class="edu-pill">Algorithms</span></div>
+    </div>
+  </div>
+    <div class="edu-card">
+      <div class="edu-deg">MBA (Master's in Business Administration)</div>
+      <div class="edu-school">HR & Finance</div>
+      <div class="edu-yr">2023 – 2025</div>
+      <div class="edu-desc">Pursued a Master of Business Administration with a focus on developing strategic management, leadership, finance, and organizational decision-making skills. Gained practical knowledge in business planning, marketing, operations, and team management, strengthening the ability to analyze business challenges and implement effective solutions.</div>
+      <div class="edu-pills"><span class="edu-pill">Marketing</span><span class="edu-pill">Accounting</span><span class="edu-pill">Business Administration</span><span class="edu-pill">Finance</span><span class="edu-pill">Statistics</span></div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-deg">B.com (Bachelor of Commerce)</div>
+      <div class="edu-school">Accounting and Finance</div>
+      <div class="edu-yr">2020 – 2023</div>
+      <div class="edu-desc">Completed a Bachelor of Commerce degree with a strong foundation in accounting, business management, finance, and economics. Developed analytical and problem-solving skills through academic coursework, gaining knowledge of financial systems, business operations, and organizational management.</div>
+      <div class="edu-pills"><span class="edu-pill">Accountancy</span><span class="edu-pill">Cash Flow</span><span class="edu-pill">Statistics</span><span class="edu-pill">Income Tax</span></div>
+    </div>
+</section>
+
+<!-- ══ CONTACT ════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-left reveal-l">
+    <div>
+      <h2>LET'S <em>WORK</em> TOGETHER</h2>
+    </div>
+    <div class="contact-social">
+      <a href="mailto:anshikanogain3@gmail.com" class="cs-link">
+        <div><div class="cs-link-name">EMAIL</div><div class="cs-link-handle">anshikanogain3@gmail.com</div></div>
+        <div class="cs-arrow">→</div>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="cs-link">
+        <div><div class="cs-link-name">LINKEDIN</div><div class="cs-link-handle">linkedin.com/in/anshikanogain</div></div>
+        <div class="cs-arrow">→</div>
+      </a>
+      <a href="https://github.com" target="_blank" class="cs-link">
+        <div><div class="cs-link-name">GITHUB</div><div class="cs-link-handle">github.com/anshikanogain</div></div>
+        <div class="cs-arrow">→</div>
+      </a>
+    </div>
+  </div>
+  <div class="contact-right reveal-r">
+    <h3>SEND A MESSAGE</h3>
+    <div class="cf-group"><label class="cf-label">Your Name</label><input type="text" id="user_name" class="cf-input" placeholder="Jane Doe"/></div>
+    <div class="cf-group"><label class="cf-label">Email Address</label><input type="email" id="user_email" class="cf-input" placeholder="jane@example.com"/></div>
+    <div class="cf-group"><label class="cf-label">Subject</label><input type="text" id="subject" class="cf-input" placeholder="Internship opportunity · Collaboration · Hello!"/></div>
+    <div class="cf-group"><label class="cf-label">Message</label><textarea class="cf-textarea" id="message" placeholder="Tell me what you have in mind…"></textarea></div>
+    <button class="cf-submit" onclick="handleForm(this)">SEND MESSAGE →</button>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════ -->
+<footer>
+  <div class="footer-copy">© 2025 <a href="#">Anshika Nogain</a> — Aspiring Data Scientist · Uttarakhand, India</div>
+  <div class="footer-status"><div class="f-dot"></div>Open to opportunities</div>
+</footer>
+
+<script>
+/* ── THEME ─────────────────────────────────── */
+let dark = false;
+function toggleTheme(){
+  dark = !dark;
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : '');
+  document.getElementById('tog-label').textContent = dark ? 'Dark' : 'Light';
+  localStorage.setItem('an-theme', dark ? 'dark' : 'light');
+}
+(function(){
+  if(localStorage.getItem('an-theme') === 'dark'){ dark=true; document.documentElement.setAttribute('data-theme','dark'); document.getElementById('tog-label').textContent='Dark'; }
+})();
+
+/* ── SCROLL REVEAL ─────────────────────────── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => obs.observe(el));
+
+/* Hero items reveal on load */
+setTimeout(() => document.querySelectorAll('#hero .reveal-l, #hero .reveal').forEach((el,i) => {
+  setTimeout(() => el.classList.add('in'), i * 160);
+}), 100);
+
+/* ── SKILL BAR OBSERVER ────────────────────── */
+const skObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.querySelectorAll('.sk-bar-fill,.rv-sk-fill').forEach(b => b.classList.add('on'));
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('#skill-rail, #rv-skills-block').forEach(el => skObs.observe(el));
+
+/* ── NAV ACTIVE ────────────────────────────── */
+const navLinks = document.querySelectorAll('.nav-center a');
+const sections = ['about','skills','projects','resume','education','contact'];
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 100;
+  sections.forEach((id, i) => {
+    const sec = document.getElementById(id);
+    if(sec && y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight){
+      navLinks.forEach(l => l.classList.remove('active'));
+      if(navLinks[i]) navLinks[i].classList.add('active');
+    }
+  });
+});
+
+/* ── CONTACT FORM ──────────────────────────── */
+function handleForm(btn){
+  const name = document.getElementById('user_name').value.trim();
+  const email = document.getElementById('user_email').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+  
+  // Validation
+  if(!name || !email || !subject || !message){
+    alert('Please fill in all fields');
+    return;
+  }
+  
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  
+  const templateParams = {
+    from_name: name,
+    from_email: email,
+    reply_to: email,
+    subject: subject,
+    message: message
+  };
+  
+  emailjs.send('service_kza34xg', 'template_2qhwimh', templateParams)
+    .then(() => {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = 'var(--acc3)';
+      btn.style.color = '#0a1410';
+      
+      // Clear form
+      document.getElementById('user_name').value = '';
+      document.getElementById('user_email').value = '';
+      document.getElementById('subject').value = '';
+      document.getElementById('message').value = '';
+      
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 3000);
+    })
+    .catch((error) => {
+      console.error('EmailJS error:', error);
+      alert('Failed to send message. Please try again later.');
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    });
+}
+
+/* ── RESUME DOWNLOAD ───────────────────────── */
+// Resume downloads directly from Google Drive. Replace YOUR_FILE_ID with your actual Drive file ID.
+</script>
+</body>
+</html>
