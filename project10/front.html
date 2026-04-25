@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- AUTH -->
+    <div id="auth">
+        <h2 id="title">Login</h2>
+
+        <input id="name" placeholder="Name" style="display:none;">
+        <input id="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+
+        <button onclick="handleAuth()" id="authBtn">Login</button>
+        <p onclick="toggle()" id="toggleText">Don't have account? Signup</p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" style="display:none;">
+        <div class="header">
+            <h2>🍲 Recipe Vault</h2>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <!-- SEARCH -->
+        <input id="search" placeholder="🔍 Search recipes..." onkeyup="loadRecipes()">
+
+        <!-- FORM -->
+        <div class="form-card">
+            <input id="titleR" placeholder="Recipe Title">
+            <input id="category" placeholder="Category (Veg, Dessert...)">
+            <input id="time" placeholder="Prep Time (mins)">
+            <textarea id="ingredients" placeholder="Ingredients"></textarea>
+            <textarea id="steps" placeholder="Cooking Steps"></textarea>
+
+            <button id="mainBtn" onclick="addRecipe()">Add Recipe</button>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Time</th>
+                        <th>Ingredients</th>
+                        <th>Steps</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table"></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- AUTH -->
+    <div id="auth">
+        <h2 id="title">Login</h2>
+
+        <input id="name" placeholder="Name" style="display:none;">
+        <input id="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+
+        <button onclick="handleAuth()">Submit</button>
+        <p onclick="toggle()">Switch to Signup/Login</p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" style="display:none;">
+        <h2>To-Do Manager</h2>
+        <button onclick="logout()">Logout</button>
+
+        <!-- FORM -->
+        <div class="form">
+            <input id="titleTask" placeholder="Task Title">
+            <input id="desc" placeholder="Description">
+            <input id="due" type="date">
+
+            <button onclick="addTask()" id="mainBtn">Add Task</button>
+        </div>
+
+        <!-- TABLE -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="table"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

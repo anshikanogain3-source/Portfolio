@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gym Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- AUTH -->
+    <div id="auth">
+        <h2 id="title">Login</h2>
+
+        <input id="name" placeholder="Name" style="display:none;">
+        <input id="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+
+        <button onclick="handleAuth()" id="authBtn">Login</button>
+        <p onclick="toggle()" id="toggleText">Don't have account? Signup</p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" style="display:none;">
+        <div class="header">
+            <h2>💪 Gym Membership Tracker</h2>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-card">
+            <input id="nameM" placeholder="Member Name">
+            <input id="age" placeholder="Age">
+            <input id="plan" placeholder="Membership Plan (Monthly/Yearly)">
+            <input id="trainer" placeholder="Trainer Name">
+            <input id="date" type="date">
+
+            <button id="mainBtn" onclick="addMember()">Add Member</button>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Plan</th>
+                        <th>Trainer</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table"></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

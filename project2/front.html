@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <div id="auth">
+        <h2 id="title">Login</h2>
+
+        <input id="name" placeholder="Name" style="display:none;">
+        <input id="email" placeholder="Email">
+        <input id="password" placeholder="Password" type="password">
+
+        <button onclick="handleAuth()" id="authBtn">Submit</button>
+        <p onclick="toggle()">Switch to Signup/Login</p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" style="display:none;">
+        <h2>Contact Book</h2>
+
+        <button onclick="logout()">Logout</button>
+
+        <div class="form">
+            <input id="cname" placeholder="Name">
+            <input id="mobile" placeholder="Mobile">
+            <input id="cemail" placeholder="Email">
+            <input id="address" placeholder="Address">
+            <input id="notes" placeholder="Notes">
+
+            <button onclick="addContact()" id="mainBtn">Add Contact</button>
+        </div>
+        <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="table"></tbody>
+        </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>🛒 E-Commerce Management</h2>
+
+    <div class="nav">
+        <button onclick="showSection('customers')">Customers</button>
+        <button onclick="showSection('products')">Products</button>
+        <button onclick="showSection('orders')">Orders</button>
+    </div>
+
+    <!-- CUSTOMERS -->
+    <div id="customers" class="section">
+        <h3>Customers</h3>
+
+        <div class="form">
+            <input id="cname" placeholder="Name">
+            <input id="cemail" placeholder="Email">
+            <input id="cphone" placeholder="Phone">
+            <input id="caddress" placeholder="Address">
+            <button id="custBtn" onclick="addCustomer()">Add Customer</button>
+        </div>
+
+        <div id="customerList"></div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div id="products" class="section">
+        <h3>Products</h3>
+
+        <div class="form">
+            <input id="pname" placeholder="Product Name">
+            <input id="price" placeholder="Price">
+            <input id="category" placeholder="Category">
+            <input id="stock" placeholder="Stock">
+            <button id="prodBtn" onclick="addProduct()">Add Product</button>
+        </div>
+
+        <div id="productList"></div>
+    </div>
+
+    <!-- ORDERS -->
+    <div id="orders" class="section">
+        <h3>Orders</h3>
+
+        <div class="form">
+            <input id="orderCustomer" placeholder="Customer Name">
+            <input id="orderPhone" placeholder="Phone">
+            <select id="productSelect"></select>
+            <input id="quantity" placeholder="Quantity">
+            <button id="orderBtn" onclick="addOrder()">Place Order</button>
+        </div>
+
+        <div id="orderList"></div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
